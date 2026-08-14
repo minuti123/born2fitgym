@@ -176,36 +176,43 @@ footer{padding:30px 7%;text-align:center;color:#777;border-top:1px solid #222}
 
 .menu-toggle{display:none}
 @media(max-width:800px){
-  nav{padding:11px 5%;min-height:70px}
-  .brand-logo{gap:7px}
+  /* Mobile navigation: expand in normal document flow so it never covers hero text. */
+  nav{
+    padding:10px 5%;min-height:68px;display:flex;flex-wrap:wrap;
+    column-gap:8px;row-gap:8px;align-items:center;
+  }
+  .brand-logo{gap:7px;flex:1 1 auto;min-width:0}
   .jd-mark{width:40px;height:40px;border-radius:10px}
   .jd-mark span{font-size:16px}
   .brand-copy strong{font-size:17px}
   .brand-copy small{font-size:6px;letter-spacing:1.5px}
-  nav>.btn{padding:10px 12px;font-size:11px}
+  nav>.btn{padding:10px 12px;font-size:11px;white-space:nowrap}
   .menu-toggle{
     display:block;background:#151515;color:#fff;border:1px solid #555;
-    border-radius:8px;font-size:22px;width:42px;height:42px;cursor:pointer
+    border-radius:8px;font-size:22px;width:42px;height:42px;cursor:pointer;
+    flex:0 0 42px
   }
   nav ul{
-    display:none;position:absolute;left:4%;right:4%;top:66px;
-    flex-direction:column;gap:0;background:rgba(10,10,10,.98);
+    display:none;position:static;order:4;flex:0 0 100%;width:100%;
+    flex-direction:column;gap:0;background:#0b0b0b;
     border:1px solid #444;border-radius:12px;overflow:hidden;
-    box-shadow:0 18px 35px #000
+    box-shadow:0 12px 25px rgba(0,0,0,.55);
   }
   nav ul.open{display:flex}
-  nav ul li a{display:block;padding:15px 18px;border-bottom:1px solid #292929}
+  nav ul li{width:100%}
+  nav ul li a{display:block;width:100%;padding:13px 18px;border-bottom:1px solid #292929;font-size:14px}
+  nav ul li:last-child a{border-bottom:0}
   .hero{
     min-height:auto;display:flex;flex-direction:column;
-    padding:48px 5% 35px;text-align:center
+    padding:38px 5% 35px;text-align:center
   }
   .hero>div:first-child{display:flex;flex-direction:column;align-items:center}
   .kicker{font-size:10px;letter-spacing:2px}
   .owner-tag{font-size:9px;letter-spacing:1px}
   .credentials{justify-content:center}
   .credentials span{font-size:8px;padding:7px 9px}
-  h1{font-size:56px;line-height:.88;letter-spacing:-3px}
-  .hero p{font-size:15px;line-height:1.55;margin:20px 0}
+  h1{font-size:clamp(43px,13vw,56px);line-height:.9;letter-spacing:-2.5px}
+  .hero p{font-size:14px;line-height:1.55;margin:18px 0}
   .hero-actions{justify-content:center;width:100%}
   .hero-actions .btn{padding:12px 17px;font-size:12px}
   .hero-img{width:100%;margin-top:28px}
@@ -658,4 +665,15 @@ a.float-wa .wa-svg{
 .transformation-image-wrap img{
   aspect-ratio: auto;
   object-fit: contain;
+}
+
+
+/* Video visibility fix */
+.video-frame { min-height: 420px; }
+.youtube-player { min-height: 420px; display: flex; align-items: center; justify-content: center; }
+.youtube-player .gym-video { width: 100%; height: min(620px, 68vh); min-height: 420px; display: block; object-fit: contain; background: #000; }
+.youtube-player .big-play { z-index: 5; }
+@media (max-width: 800px) {
+  .video-frame, .youtube-player { min-height: 300px; }
+  .youtube-player .gym-video { height: min(520px, 72vh); min-height: 300px; }
 }
