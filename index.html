@@ -27,7 +27,7 @@
     <small>GYM • NEWTOWN</small>
   </div>
 </div>
-  <button class="menu-toggle" aria-label="Open menu" onclick="document.querySelector('nav ul').classList.toggle('open')">☰</button>
+  <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" onclick="toggleMobileMenu(this)">☰</button>
   <ul>
     <li><a href="#home">HOME</a></li><li><a href="#about">ABOUT</a></li>
     <li><a href="#coaching">COACHING</a></li><li><a href="#transformations">RESULTS</a></li><li><a href="#plans">PLANS</a></li><li><a href="#gallery">GALLERY</a></li><li><a href="#videos">VIDEOS</a></li>
@@ -306,10 +306,9 @@
           <div class="video-card">
             <div class="video-frame">
               <div class="youtube-player" data-video="0">
-      <video controls playsinline preload="metadata" poster="assets/images/image_07.jpg">
+      <video class="gym-video" controls playsinline preload="auto" poster="assets/images/image_07.jpg">
         <source src="assets/videos/video_02.mp4" type="video/mp4">
-                Your browser does not support HTML5 video.
-              </video>
+        Your browser does not support HTML5 video.
       </video>
       <button class="big-play" aria-label="Play video" onclick="playVideo(this)">▶</button>
     </div>
@@ -336,10 +335,9 @@
           <div class="video-card">
             <div class="video-frame">
               <div class="youtube-player" data-video="1">
-      <video controls playsinline preload="metadata" poster="assets/images/image_08.jpg">
+      <video class="gym-video" controls playsinline preload="auto" poster="assets/images/image_08.jpg">
         <source src="assets/videos/video_03.mp4" type="video/mp4">
-                Your browser does not support HTML5 video.
-              </video>
+        Your browser does not support HTML5 video.
       </video>
       <button class="big-play" aria-label="Play video" onclick="playVideo(this)">▶</button>
     </div>
