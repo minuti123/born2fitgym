@@ -155,3 +155,32 @@ document.addEventListener("DOMContentLoaded", function () {
     document.addEventListener("touchstart", start, {once:true});
   });
 });
+
+/* Member reviews carousel */
+(function(){
+  const reviews = Array.from(document.querySelectorAll(".member-review"));
+  const dots = document.getElementById("reviewDots");
+  let current = 0;
+
+  if (!reviews.length || !dots) return;
+
+  reviews.forEach((_, i) => {
+    const dot = document.createElement("button");
+    dot.type = "button";
+    dot.className = "review-dot" + (i === 0 ? " active" : "");
+    dot.setAttribute("aria-label", "Show member review " + (i + 1));
+    dot.addEventListener("click", () => showReview(i));
+    dots.appendChild(dot);
+  });
+
+  function showReview(index){
+    current = (index + reviews.length) % reviews.length;
+    reviews.forEach((r, i) => r.classList.toggle("active", i === current));
+    dots.querySelectorAll(".review-dot").forEach((d, i) =>
+      d.classList.toggle("active", i === current)
+    );
+  }
+
+  document.querySelector(".review-prev")?.addEventListener("click", () => showReview(current - 1));
+  document.querySelector(".review-next")?.addEventListener("click", () => showReview(current + 1));
+})();
