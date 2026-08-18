@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://minuti123.github.io/born2fitgym/sitemap.xml
